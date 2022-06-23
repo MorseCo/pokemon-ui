@@ -1,0 +1,45 @@
+.input-form {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+.input{
+    width: 30vw;
+}
+
+.buttons {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.submit{
+    background-color: #1976d2;
+    color: white;
+    margin-top: 1vh;
+    width: 5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+
+.check-box{
+    margin-top: 10px;
+    margin-left: 1vw;
+}
+
+.viewer-card{
+    margin: 0 auto;
+    width: 50%;
+    background-color: hsl(0,0%,96.5%);
+
+}
+
+.json-viewer{
+    max-width: 80%;
+    min-width: 20%;
+    justify-content: center;
+}

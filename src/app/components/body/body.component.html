@@ -1,0 +1,18 @@
+<form class="input-form">
+    <mat-form-field class="input" appearance="outline">
+      <mat-label>Pokemon</mat-label>
+      <input matInput placeholder="Pikachu" [(ngModel)]="pokemon" name="pokemon">
+    </mat-form-field>
+    <div class="buttons">
+        <button mat-flat-button class="submit" type="submit" (click)="getPokemon()" [disabled]="!pokemon">Submit</button>
+        <button mat-flat-button class="submit" type="submit" (click)="getRandomPokemon()">Random</button>
+        <mat-checkbox class="check-box" (change)="toggleSimple()">Simplified Data</mat-checkbox>
+    </div>
+</form>
+
+<br>
+
+    <mat-card class = "viewer-card">
+        <ngx-json-viewer [json]="pokeData" class="json-viewer" *ngIf="pokeData"></ngx-json-viewer>
+    </mat-card>
+
