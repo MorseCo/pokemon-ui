@@ -23,5 +23,47 @@ export class FlaskService {
       }
     );
   }
+
+  getSimplePokemon(pokemon: string): Observable<Object> {
+    let headers = new HttpHeaders();
+    headers = headers.set( 'Access-Control-Allow-Origin', '*')
+    .set('Content-Type', 'application/json')
+    .set('Acces-Control-Allow-Methods', 'GET')
+    return this.http.get<Object>(
+      this.FLASK_URL + 'simple/' + pokemon, 
+      {
+        headers
+      }
+    );
+  }
+
+  getRandomPokemon(): Observable<Object> {
+    let headers = new HttpHeaders();
+    headers = headers.set( 'Access-Control-Allow-Origin', '*')
+    .set('Content-Type', 'application/json')
+    .set('Acces-Control-Allow-Methods', 'GET')
+    return this.http.get<Object>(
+      this.FLASK_URL + 'random/', 
+      {
+        headers
+      }
+    );
+  }
+
+
+  getSimpleRandomPokemon(): Observable<Object> {
+    let headers = new HttpHeaders();
+    headers = headers.set( 'Access-Control-Allow-Origin', '*')
+    .set('Content-Type', 'application/json')
+    .set('Acces-Control-Allow-Methods', 'GET')
+    return this.http.get<Object>(
+      this.FLASK_URL + 'simple/random/', 
+      {
+        headers
+      }
+    );
+  }
+
+
 }
 
