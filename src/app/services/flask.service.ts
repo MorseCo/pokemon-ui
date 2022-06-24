@@ -67,7 +67,6 @@ export class FlaskService {
     .set('Content-Type', 'application/json')
     .set('Acces-Control-Allow-Methods', 'GET')
     .set('Authorization', 'Basic ' + btoa(authString))
-    console.log(headers)
     return this.http.get<Object>(
       this.FLASK_URL + 'simple/random/', 
       {
@@ -76,6 +75,21 @@ export class FlaskService {
     );
   }
 
+  authenticate(): Observable<Object> {
+    let authString = sessionStorage.getItem("username") + ":" + sessionStorage.getItem("password");
+    console.log(authString)
+    let headers = new HttpHeaders();
+    headers = headers.set( 'Access-Control-Allow-Origin', '*')
+    .set('Content-Type', 'application/json')
+    .set('Acces-Control-Allow-Methods', 'GET')
+    .set('Authorization', 'Basic ' + btoa(authString))
+    return this.http.get<Object>(
+      this.FLASK_URL + 'authenticate', 
+      {
+        headers
+      }
+    );
+  }
 
 }
 
