@@ -27,7 +27,6 @@ export class BodyComponent implements OnInit {
 
   checkLogin(): void {
     if(!sessionStorage.getItem("username")) {
-      console.log("Checklogin");
       this.dialog.open(LoginModalComponent);
     }
   }
@@ -38,14 +37,14 @@ export class BodyComponent implements OnInit {
         this.pokeData = data;
       },
       (error) => {
-        alert(this.errorHelper(error));
+        this.errorHelper(error);
       })
     } else {
       this.flaskService.getPokemon(this.pokemon).subscribe((data) =>{
         this.pokeData = data;
       },
       (error) => {
-        alert(this.errorHelper(error));
+        this.errorHelper(error);
       })
     }
   }
@@ -56,14 +55,14 @@ export class BodyComponent implements OnInit {
         this.pokeData = data;
       },
       (error) => {
-        alert(this.errorHelper(error));
+        this.errorHelper(error);
       })
     } else {
       this.flaskService.getRandomPokemon().subscribe((data) =>{
         this.pokeData = data;
       },
       (error) => {
-        alert(this.errorHelper(error));
+        this.errorHelper(error);
       })
     }
   }
@@ -72,8 +71,14 @@ export class BodyComponent implements OnInit {
     this.simple = !this.simple;
   }
 
-  errorHelper(errorObj: { status: any; statusText: any; }): string {
-    return "Unable to retrieve Pokemon: " + JSON.stringify(errorObj.status) + " " + JSON.stringify(errorObj.statusText);
+  errorHelper(errorObj: { status: any; statusText: any; }): void {
+    if(errorObj.status == 401){
+      alert("Unauthorized: Please Log In")
+      this.checkLogin();
+    }
+    else{
+      alert("Unable to retrieve Pokemon: " + JSON.stringify(errorObj.status) + " " + JSON.stringify(errorObj.statusText));
+    }
   }
 
 }
