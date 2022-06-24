@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FlaskService } from 'src/app/services/flask.service';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { MatDialog } from '@angular/material/dialog'
-import { Observable } from 'rxjs';
-
 
 
 @Component({
