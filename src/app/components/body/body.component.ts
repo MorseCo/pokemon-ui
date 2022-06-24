@@ -22,7 +22,12 @@ export class BodyComponent implements OnInit {
   pokeData!: Object;
   
   ngOnInit(): void {
+    this.checkLogin();
+  }
+
+  checkLogin(): void {
     if(!sessionStorage.getItem("username")) {
+      console.log("Checklogin");
       this.dialog.open(LoginModalComponent);
     }
   }
@@ -33,14 +38,14 @@ export class BodyComponent implements OnInit {
         this.pokeData = data;
       },
       (error) => {
-        alert(this.errorHelper(error))
+        alert(this.errorHelper(error));
       })
     } else {
       this.flaskService.getPokemon(this.pokemon).subscribe((data) =>{
         this.pokeData = data;
       },
       (error) => {
-        alert(this.errorHelper(error))
+        alert(this.errorHelper(error));
       })
     }
   }
@@ -51,14 +56,14 @@ export class BodyComponent implements OnInit {
         this.pokeData = data;
       },
       (error) => {
-        alert(this.errorHelper(error))
+        alert(this.errorHelper(error));
       })
     } else {
       this.flaskService.getRandomPokemon().subscribe((data) =>{
         this.pokeData = data;
       },
       (error) => {
-        alert(this.errorHelper(error))
+        alert(this.errorHelper(error));
       })
     }
   }
@@ -68,7 +73,7 @@ export class BodyComponent implements OnInit {
   }
 
   errorHelper(errorObj: { status: any; statusText: any; }): string {
-    return "Unable to retrieve Pokemon: " + JSON.stringify(errorObj.status) + " " + JSON.stringify(errorObj.statusText)
+    return "Unable to retrieve Pokemon: " + JSON.stringify(errorObj.status) + " " + JSON.stringify(errorObj.statusText);
   }
 
 }

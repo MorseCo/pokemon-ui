@@ -15,6 +15,6 @@
       </mat-form-field>
 
     <div class="buttons">
-        <button mat-flat-button class="submit" type="submit" (click)="login()" [disabled]="!username || !password">Submit</button>
+        <button mat-flat-button class="submit" type="submit" (click)="login()" [mat-dialog-close]="true" [disabled]="!username || !password">Submit</button>
     </div>
 </form>

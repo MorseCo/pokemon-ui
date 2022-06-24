@@ -40,7 +40,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule
 
   ],
-  providers: [],
+  providers: [BodyComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
