@@ -11,6 +11,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { MatCardModule } from '@angular/material/card';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
+
 
 
 
@@ -19,8 +24,8 @@ import { MatCardModule } from '@angular/material/card';
   declarations: [
     AppComponent,
     HeaderComponent,
-    BodyComponent
-
+    BodyComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import { MatCardModule } from '@angular/material/card';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxJsonViewerModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
 
   ],
   providers: [],

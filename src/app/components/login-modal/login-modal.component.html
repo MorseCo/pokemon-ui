@@ -1,0 +1,20 @@
+<h2>
+    Log In
+</h2>
+
+
+<form class="input-form">
+    <mat-form-field class="input" appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Ash" [(ngModel)]="username" name="username">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" name="password">
+      </mat-form-field>
+
+    <div class="buttons">
+        <button mat-flat-button class="submit" type="submit" (click)="login()" [disabled]="!username || !password">Submit</button>
+    </div>
+</form>
